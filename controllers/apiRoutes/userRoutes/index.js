@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const {User, Post, Comment} = require("../../../models")
 
+// route handlers for "/api/user"
 router.get('/', async (req,res)=> {
     let userData = await User.findAll({
         include: [{model: Post},{model: Comment}]

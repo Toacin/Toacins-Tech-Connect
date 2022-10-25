@@ -1,12 +1,10 @@
 const router = require("express").Router();
-const {User, Post, Comment} = require("../../models")
+const {User, Post, Comment} = require("../../models");
+const userRoutes = require("./userRoutes");
+const blogPostRoutes = require("./blogPostRoutes")
 
 // for "/api" endpoints
-
-router.get('/', async (req,res)=> {
-    let userData = await User.findAll({include: [{model: Post},{model: Comment}]});
-    let users = userData.map((user) => user.get({plain: true}));
-    res.status(200).json(users);
-})
+router.use("/users", userRoutes)
+router.use("/blogpost", blogPostRoutes)
 
 module.exports = router;

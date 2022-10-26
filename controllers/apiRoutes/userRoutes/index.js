@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const {User, Post, Comment} = require("../../../models")
+const bcrypt = require('bcrypt');
 
 // route handlers for "/api/user"
 router.get('/', async (req,res)=> {
@@ -25,7 +26,7 @@ router.get('/:id', async (req,res)=> {
 router.post('/', async (req,res) => {
     try {
         let postUser = await User.create(req.body);
-        res.status(200).json(postUser);
+        res.status(201).json(postUser);
     }
     catch (err) {
         res.status(500).json(err);
@@ -60,4 +61,32 @@ router.delete('/:id', async (req,res) => {
         res.status(500).json(err);
     }
 })
+
+router.post('/login', async (req,res) => {
+    let userData = await User.findOne({
+        where: {
+            username: req.body.username
+        }
+    });
+    if (!userData) return res.status(404).json("Invalid Login Credentials");
+
+    if (! userData.checkPassword(req.body.password)) return res.status(404).json("Invalid Login Credentials");
+    
+    let user = userData.get({plain: true});
+    req.session.save(() => {
+        req.session.id = user.id;
+        req.session.loggedIn = true;
+
+        res.status(202).json(user);
+    })
+})
+
+router.post('/logout', async (req,res) => {
+    if (req.session.loggedIn) {
+        
+    } else {
+
+    }
+})
+
 module.exports = router;

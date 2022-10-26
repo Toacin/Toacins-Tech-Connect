@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const {User, Post, Comment} = require("../../../models")
-const bcrypt = require('bcrypt');
 
 // route handlers for "/api/user"
 router.get('/', async (req,res)=> {
@@ -83,9 +82,11 @@ router.post('/login', async (req,res) => {
 
 router.post('/logout', async (req,res) => {
     if (req.session.loggedIn) {
-        
+        req.session.destroy(() => {
+            res.status(200).end();
+        })
     } else {
-
+        res.status(400).end();
     }
 })
 

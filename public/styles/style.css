@@ -1,3 +1,53 @@
 body {
-    background-color: aqua;
+    background-color: #e1fcfc;
+}
+
+#mainNav {
+    width: 17%;
+    height: 100vh;
+    position: fixed;
+    background-color: #293336;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 40px 27px 0px 0px;
+    z-index: 1;
+}
+
+#navHeader {
+    font-size: 4em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b8d8d8;
+}
+
+.navElements {
+    margin: 10px 0px;
+    font-size: 1.7em;
+}
+
+.blogCard {
+    z-index: 0;
+    margin: 20px;
+    width: 80%;
+    position: relative;
+    float: right;
+}
+
+.blogHeader {
+    background-color: #3d4c4f;
+    color: white;
+}
+
+#blogFooterText {
+    color: white;
+    margin: 0px;
+    padding: 0px;
 }

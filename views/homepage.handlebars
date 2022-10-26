@@ -1,1 +1,14 @@
-<div>hello</div>
+{{#each posts as |post|}}
+<div class="card text-center blogCard">
+    <div class="card-header blogHeader">
+        Posted By: {{post.user.username}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta aliquid voluptas dolor corporis maiores suscipit tempora possimus consequuntur adipisci, cupiditate nesciunt veritatis aut laudantium, accusantium temporibus eaque sed perspiciatis veniam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. In omnis adipisci blanditiis, voluptate, minus optio soluta numquam amet fugit vitae nemo tenetur reprehenderit nostrum? Ullam perferendis repudiandae recusandae itaque ab? Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse earum sapiente explicabo, labore ut, repellat cumque cum deserunt suscipit magni aspernatur consequuntur quae mollitia beatae ad fugit facere vero quos?  {{post.post_content}}</p>
+    </div>
+    <div class="card-footer text-muted blogHeader">
+        <p id="blogFooterText">2 days ago</p>
+    </div>
+</div>
+{{/each}}

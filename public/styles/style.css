@@ -51,3 +51,19 @@ a:hover {
     margin: 0px;
     padding: 0px;
 }
+
+.blogTitle {
+    font-size: 2.5em;
+}
+
+.blogText {
+    font-size: 1.5em;
+}
+
+.blogCommentsHeader {
+    margin: 40px 0px 10px 10px;
+}
+
+.blogComments {
+    text-align: left;
+}

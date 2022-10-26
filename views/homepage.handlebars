@@ -1,5 +1,25 @@
+<div class="card text-center blogCard">
+    <div class="card-header blogHeader">
+        <p id="blogFooterText">Write a Post</p>
+    </div>
+    <div class="card-body postForm">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" id="newPostTitle">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Body</label>
+            <input class="form-control" id="newPostBody">
+        </div>
+        <button type="submit" class="btn btn-primary" id="postSubmit">Submit</button>
+    </div>
+    <div class="card-footer text-muted blogHeader">
+        <p id="blogFooterText"></p>
+    </div>
+</div>
+
 {{#each posts as |post|}}
-<div data-post="{{post.id}}" class="card text-center blogCard">
+<div data-post= {{post.id}} class="card text-center blogCard">
     <div class="card-header blogHeader">
         Posted By: {{post.user.username}}
     </div>

@@ -1,11 +1,13 @@
-$postButton = document.querySelector("#postSubmit");
-
-const formSubmitHandler = ()=> {
-    let title = document.querySelector("#newPostTitle").value
-    let body = document.querySelector("#newPostBody").value
-    let userID = 1;
+if (document.querySelector('#blogCard')) {
+    $postButton = document.querySelector("#postSubmit");
     
-    fetch('/api/blogpost/')
+    const formSubmitHandler = ()=> {
+        let title = document.querySelector("#newPostTitle").value
+        let body = document.querySelector("#newPostBody").value
+        let userID = 1;
+        
+        fetch('/api/blogpost/')
+    }
+    
+    $postButton.addEventListener('click', formSubmitHandler)
 }
-
-$postButton.addEventListener('click', formSubmitHandler)

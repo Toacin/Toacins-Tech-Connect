@@ -2,8 +2,8 @@ if(document.querySelector('#loginSubmit')) {
     const $loginBTN = document.querySelector('#loginSubmit');
     
     const loginHandler = async () => {
-        const username = document.querySelector('#loginUsername').value;
-        const password = document.querySelector('#loginPassword').value;
+        const username = document.querySelector('#loginUsername').value.trim();
+        const password = document.querySelector('#loginPassword').value.trim();
     
         console.log(username);
         console.log(password);
@@ -14,7 +14,7 @@ if(document.querySelector('#loginSubmit')) {
                 body: JSON.stringify({ username, password }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            (response.ok) ? document.location.replace('/') : alert('Unable to login');
+            (response.ok) ? document.location.replace('/') : alert('Invalid Credentials');
         }
     }
     

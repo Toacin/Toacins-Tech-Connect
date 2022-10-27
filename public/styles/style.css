@@ -84,3 +84,15 @@ span {
     width: 40%;
     float: center;
 }
+
+.commentForm {
+    margin: 10px 0px
+}
+
+.postCommentSubmit, .postCommentInput{
+    margin-left: 10px;
+}
+
+.customBTN {
+    background-color: #3d4c4f;
+}

@@ -12,7 +12,7 @@
             <label for="exampleInputPassword1" class="form-label">Body</label>
             <input class="form-control" id="newPostBody">
         </div>
-        <button type="submit" class="btn btn-primary" id="postSubmit">Submit</button>
+        <button type="submit" class="btn btn-primary customBTN" id="postSubmit">Post</button>
     </div>
     <div class="card-footer text-muted blogHeader">
         <p id="blogFooterText"></p>
@@ -29,13 +29,20 @@
         <h5 class="card-title blogTitle">{{post.title}}</h5>
         <p class="card-text blogText">{{post.post_content}}</p>
     </div>
+    {{#if post.comments}}
     <h5 class="card-title blogCommentsHeader">Comments</h5>
     <ul class="list-group list-group-flush">
         {{#each post.comments as |comment|}}
         <li class="list-group-item blogComments"><span>{{comment.user.username}}</span>: {{comment.comment_content}}</li>
         {{/each}}
     </ul>
-    
+    {{/if}}
+    <div class="d-flex justify-content-start commentForm">
+        <div class="col-10 postCommentInput">
+            <input class="form-control" placeholder="Comment on this post!">
+        </div>
+        <button type="submit" class="btn btn-primary col-1 postCommentSubmit customBTN">Post Comment</button>
+    </div>
     <div class="card-footer text-muted blogHeader">
         <p id="blogFooterText">Posted at: {{post.createdAt}}</p>
     </div>

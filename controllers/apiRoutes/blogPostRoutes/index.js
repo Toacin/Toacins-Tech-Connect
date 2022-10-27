@@ -29,9 +29,15 @@ router.get('/:id', async (req,res)=> {
 })
 
 router.post('/', async (req,res) => {
+    if (!req.session.id) {
+        res.redirect('/login');
+    }
     try {
-        let postPost = await Post.create(req.body);
-        res.status(200).json(postPost);
+        let post = req.body;
+        post.user_id = req.session.user_id;
+        console.log(post);
+        let postedPost = await Post.create(post);
+        res.status(200).json(postedPost);
     }
     catch (err) {
         res.status(500).json(err);

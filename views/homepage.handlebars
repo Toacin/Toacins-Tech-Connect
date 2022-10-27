@@ -21,7 +21,7 @@
 {{/if}}
 
 {{#each posts as |post|}}
-<div data-post= {{post.id}} class="card text-center blogCard">
+<div id="hello" class="card text-center blogCard" data-post={{post.id}}>
     <div class="card-header blogHeader">
         Posted By: {{post.user.username}}
     </div>
@@ -48,3 +48,5 @@
     </div>
 </div>
 {{/each}}
+
+<script src="/scripts/homepage.js"></script>

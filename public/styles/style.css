@@ -19,7 +19,7 @@ body {
     font-size: 4em;
 }
 
-a {
+a, #hello-message {
     color: white;
     text-decoration: none;
 }
@@ -66,4 +66,21 @@ a:hover {
 
 .blogComments {
     text-align: left;
+}
+
+span {
+    font-weight: 700;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#login-card {
+    width: 40%;
+    float: center;
 }

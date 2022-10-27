@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div class="card text-center blogCard">
     <div class="card-header blogHeader">
         <p id="blogFooterText">Write a Post</p>
@@ -17,6 +18,7 @@
         <p id="blogFooterText"></p>
     </div>
 </div>
+{{/if}}
 
 {{#each posts as |post|}}
 <div data-post= {{post.id}} class="card text-center blogCard">
@@ -25,12 +27,12 @@
     </div>
     <div class="card-body">
         <h5 class="card-title blogTitle">{{post.title}}</h5>
-        <p class="card-text blogText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta aliquid voluptas dolor corporis maiores suscipit tempora possimus consequuntur adipisci, cupiditate nesciunt veritatis aut laudantium, accusantium temporibus eaque sed perspiciatis veniam! Lorem ipsum, dolor sit amet consectetur adipisicing elit. In omnis adipisci blanditiis, voluptate, minus optio soluta numquam amet fugit vitae nemo tenetur reprehenderit nostrum? Ullam perferendis repudiandae recusandae itaque ab? Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse earum sapiente explicabo, labore ut, repellat cumque cum deserunt suscipit magni aspernatur consequuntur quae mollitia beatae ad fugit facere vero quos?  {{post.post_content}}</p>
+        <p class="card-text blogText">{{post.post_content}}</p>
     </div>
     <h5 class="card-title blogCommentsHeader">Comments</h5>
     <ul class="list-group list-group-flush">
         {{#each post.comments as |comment|}}
-        <li class="list-group-item blogComments">{{comment.user_id}}: {{comment.comment_content}}</li>
+        <li class="list-group-item blogComments"><span>{{comment.user.username}}</span>: {{comment.comment_content}}</li>
         {{/each}}
     </ul>
     <div class="card-footer text-muted blogHeader">

@@ -10,6 +10,16 @@ router.get('/', async (req,res)=> {
     res.status(200).json(users);
 })
 
+router.get('/logout', async (req,res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.redirect("/");
+        })
+    } else {
+        res.status(400).end();
+    }
+})
+
 router.get('/:id', async (req,res)=> {
     let userData = await User.findOne({
         include: [{model: Post},{model: Comment}],
@@ -74,20 +84,12 @@ router.post('/login', async (req,res) => {
     let user = userData.get({plain: true});
     req.session.save(() => {
         req.session.id = user.id;
+        req.session.username = user.username;
         req.session.loggedIn = true;
 
         res.status(202).json(user);
     })
 })
 
-router.post('/logout', async (req,res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(200).end();
-        })
-    } else {
-        res.status(400).end();
-    }
-})
 
 module.exports = router;

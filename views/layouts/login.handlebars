@@ -12,18 +12,6 @@
 
 <body>
     <main>
-    <nav id="mainNav">
-        <a href="/"><h2 id="navHeader">Home</h2></a>
-        {{#if loggedIn}}
-        <p id="hello-message" href="/" class="navElements">Hiya {{username}}!</p>
-        {{/if}}
-        <a href="/" class="navElements">My Posts</a>
-        {{#if loggedIn}}
-        <a href="/api/user/logout" class="navElements">Logout</a>
-        {{else}}
-        <a href="/login" class="navElements">Login</a>
-        {{/if}}
-    </nav>
     {{{body}}}
     </main>
 </body>

@@ -6,9 +6,11 @@ router.get("/", async (req,res) => {
         include: [{
             model: Comment,
             include : [{model: User}]
-        }, {model: User}]
+        }, {model: User}],
+        order: [['id', 'DESC']]
     });
     let posts = postData.map((post) => post.get({plain: true}));
+    console.log(posts);
     (req.session.loggedIn) ? posts.logged_in = true : posts.logged_in = false;
     res.render("homepage", {posts, loggedIn: req.session.loggedIn, username: req.session.username});
 })

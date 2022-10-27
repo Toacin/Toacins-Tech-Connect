@@ -37,12 +37,14 @@
         {{/each}}
     </ul>
     {{/if}}
+    {{#if ../loggedIn}}
     <div class="d-flex justify-content-start commentForm">
         <div class="col-10 postCommentInput">
             <input class="form-control" placeholder="Comment on this post!">
         </div>
         <button type="submit" class="btn btn-primary col-1 postCommentSubmit customBTN">Post Comment</button>
     </div>
+    {{/if}}
     <div class="card-footer text-muted blogHeader">
         <p id="blogFooterText">Posted at: {{post.createdAt}}</p>
     </div>

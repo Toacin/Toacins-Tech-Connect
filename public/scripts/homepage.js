@@ -6,7 +6,6 @@ if (document.querySelector('.blogCard')) {
         let post_content = document.querySelector("#newPostBody").value.trim()
         console.log("button works")
         
-
         if (title && post_content) {
             const response = await fetch('/api/blogpost/', {
                 method: 'POST',
@@ -27,9 +26,6 @@ if (document.querySelectorAll(".postCommentSubmit")) {
     const commentSubmitHandler = async (e)=> {
         let comment_content = e.target.previousElementSibling.lastElementChild.value;
         let post_id = e.target.parentNode.parentNode.getAttribute("data-post");
-        console.log(comment_content);
-        console.log(post_id);
-
 
         if (comment_content) {
             const response = await fetch('/api/comment', {
@@ -47,5 +43,3 @@ if (document.querySelectorAll(".postCommentSubmit")) {
         button.addEventListener("click", commentSubmitHandler);
     });
 }
-
-// console.log(document.querySelector("ul").nextElementSibling.lastElementChild);

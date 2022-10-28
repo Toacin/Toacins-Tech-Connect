@@ -1,4 +1,4 @@
-if (document.querySelector('.blogCard')) {
+if (document.querySelector('#postingDiv')) {
     $postButton = document.querySelector("#postSubmit");
     
     const formSubmitHandler = async ()=> {

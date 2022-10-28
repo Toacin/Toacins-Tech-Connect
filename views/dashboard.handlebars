@@ -29,6 +29,9 @@
         <h5 class="card-title blogTitle">{{post.title}}</h5>
         <p class="card-text blogText">{{post.post_content}}</p>
     </div>
+    <div class="card-body postForm">
+        <button type="submit" class="btn btn-primary customBTN editButton">Edit</button>
+    </div>
     {{#if post.comments}}
     <h5 class="card-title blogCommentsHeader">Comments</h5>
     <ul class="list-group list-group-flush">
@@ -51,4 +54,4 @@
 </div>
 {{/each}}
 
-<script src="/scripts/homepage.js"></script>
+<script src="/scripts/dashboard.js"></script>

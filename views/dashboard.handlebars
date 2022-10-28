@@ -1,0 +1,54 @@
+{{#if loggedIn}}
+<div class="card text-center blogCard">
+    <div class="card-header blogHeader">
+        <p id="blogFooterText">Write a Post</p>
+    </div>
+    <div class="card-body postForm">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" id="newPostTitle">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Body</label>
+            <input class="form-control" id="newPostBody">
+        </div>
+        <button type="submit" class="btn btn-primary customBTN" id="postSubmit">Post</button>
+    </div>
+    <div class="card-footer text-muted blogHeader">
+        <p id="blogFooterText"></p>
+    </div>
+</div>
+{{/if}}
+
+{{#each posts as |post|}}
+<div id="hello" class="card text-center blogCard" data-post={{post.id}}>
+    <div class="card-header blogHeader">
+        Posted By: {{post.user.username}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title blogTitle">{{post.title}}</h5>
+        <p class="card-text blogText">{{post.post_content}}</p>
+    </div>
+    {{#if post.comments}}
+    <h5 class="card-title blogCommentsHeader">Comments</h5>
+    <ul class="list-group list-group-flush">
+        {{#each post.comments as |comment|}}
+        <li class="list-group-item blogComments"><span>{{comment.user.username}}</span>: {{comment.comment_content}}</li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{#if ../loggedIn}}
+    <div class="d-flex justify-content-start commentForm">
+        <div class="col-10 postCommentInput">
+            <input class="form-control" placeholder="Comment on this post!">
+        </div>
+        <button type="submit" class="btn btn-primary col-1 postCommentSubmit customBTN">Post Comment</button>
+    </div>
+    {{/if}}
+    <div class="card-footer text-muted blogHeader">
+        <p id="blogFooterText">Posted at: {{post.createdAt}}</p>
+    </div>
+</div>
+{{/each}}
+
+<script src="/scripts/homepage.js"></script>

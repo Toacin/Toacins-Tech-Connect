@@ -35,7 +35,14 @@ router.get('/:id', async (req,res)=> {
 router.post('/', async (req,res) => {
     try {
         let postUser = await User.create(req.body);
-        res.status(201).json(postUser);
+        if (!postUser) return res.status(400).json("something went wrong")
+        req.session.save(()=> {
+            req.session.loggedIn = true;
+            req.session.user_id = postUser.id;
+            req.session.username = postUser.username;
+
+            res.status(201).json(postUser);
+        })
     }
     catch (err) {
         res.status(500).json(err);

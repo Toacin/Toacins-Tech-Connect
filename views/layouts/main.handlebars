@@ -17,12 +17,12 @@
         {{#if loggedIn}}
         <p id="hello-message" href="/" class="navElements">Hiya {{username}}!</p>
         {{/if}}
-        <a href="/" class="navElements">My Posts</a>
+        <a href="/dashboard" class="navElements">My Posts</a>
         {{#if loggedIn}}
         <a href="/api/user/logout" class="navElements">Logout</a>
         {{else}}
         <a href="/login" class="navElements">Login</a>
-        <a href="/login" class="navElements">Sign-Up</a>
+        <a href="/signup" class="navElements">Sign-Up</a>
         {{/if}}
     </nav>
     {{{body}}}

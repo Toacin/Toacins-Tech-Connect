@@ -15,9 +15,12 @@ router.get("/", async (req,res) => {
 })
 
 router.get("/dashboard", async (req,res) => {
-    if (!req.session.loggedIn) res.redirect('/login');
+    if (!req.session.loggedIn) return res.redirect('/login');
 
     let postData = await Post.findAll({
+        where: {
+            id: req.session.user_id
+        },
         include: [{
             model: Comment,
             include : [{model: User}]

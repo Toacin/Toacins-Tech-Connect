@@ -12,7 +12,7 @@ if (document.querySelector('.blogCard')) {
                 body: JSON.stringify({ title, post_content }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            (response.ok) ? document.location.replace('/') : alert('Failed to Post');
+            (response.ok) ? document.location.reload() : alert('Failed to Post');
         } else {
             alert("Text field cannot be empty")
         }
@@ -33,7 +33,7 @@ if (document.querySelectorAll(".postCommentSubmit")) {
                 body: JSON.stringify({ comment_content, post_id }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            (response.ok) ? document.location.replace('/') : alert('Failed to Post');
+            (response.ok) ? document.location.reload() : alert('Failed to Post');
         } else {
             alert("Comment field cannot be empty")
         }

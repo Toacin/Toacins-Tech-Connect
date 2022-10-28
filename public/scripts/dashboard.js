@@ -11,9 +11,9 @@ if (document.querySelector('.blogCard')) {
                 body: JSON.stringify({ title, post_content }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            (response.ok) ? document.location.replace('/') : alert('Failed to Post');
+            (response.ok) ? document.location.replace('/dashboard') : alert('Failed to Post');
         } else {
-            alert("Text field cannot be empty")
+            alert("Text fields cannot be empty")
         }
     }
     $postButton.addEventListener('click', formSubmitHandler)
@@ -32,7 +32,7 @@ if (document.querySelectorAll(".postCommentSubmit")) {
                 body: JSON.stringify({ comment_content, post_id }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            (response.ok) ? document.location.replace('/') : alert('Failed to Post');
+            (response.ok) ? document.location.replace('/dashboard') : alert('Failed to Post');
         } else {
             alert("Comment field cannot be empty")
         }
@@ -48,9 +48,25 @@ if (document.querySelectorAll(".editButton")) {
 
     const addFields = async (e) => {
         let postID = e.target.parentNode.parentNode.getAttribute("data-post");
-        let editableTitle = e.target.parentNode.previousElementSibling.firstElementChild.textContent;
-        let editableContent = e.target.parentNode.previousElementSibling.lastElementChild.textContent;
-        console.log(editableTitle);
+        // let editableTitle = e.target.parentNode.previousElementSibling.firstElementChild.textContent;
+        // let editableContent = e.target.parentNode.previousElementSibling.lastElementChild.textContent;
+        // console.log(editableTitle);
+        let newTitle = e.target.previousElementSibling.previousElementSibling.lastElementChild.value.trim();
+        let newPost = e.target.previousElementSibling.lastElementChild.value.trim();
+        console.log(postID);
+        console.log(newTitle);
+        console.log(newPost);
+
+        if (newTitle && newPost) {
+            const response = await fetch(`/api/blogpost/${postID}`, {
+                method: 'PUT',
+                body: JSON.stringify({ title: newTitle, post_content: newPost}),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            (response.ok) ? document.location.replace('/dashboard') : alert('Failed to Post');
+        } else {
+            alert("Text fields cannot be empty")
+        }
     }
 
     $editBTN.forEach((button) => {

@@ -29,6 +29,10 @@ Being a full-stack application, this has been my biggest endeavor yet with mergi
 
 This application will eventually host a much more expansive suite of blog-post features.
 
+## Deployed Application
+
+https://toacinstechconnect.herokuapp.com/
+
 ## Screenshot
 
 ### Homepage

@@ -50,7 +50,6 @@ if (document.querySelectorAll(".editButton")) {
         let postID = e.target.parentNode.parentNode.getAttribute("data-post");
         let editableTitle = e.target.parentNode.previousElementSibling.firstElementChild.textContent;
         let editableContent = e.target.parentNode.previousElementSibling.lastElementChild.textContent;
-        // console.log(editableTitle);
         let $titleDiv = document.createElement('div');
         $titleDiv.setAttribute('class', 'mb-3');
         let $titleLabel = document.createElement('label');

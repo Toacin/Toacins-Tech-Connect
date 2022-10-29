@@ -1,3 +1,4 @@
+// button handlers for homepage (create post and create comment)
 if (document.querySelector('#postingDiv')) {
     $postButton = document.querySelector("#postSubmit");
     

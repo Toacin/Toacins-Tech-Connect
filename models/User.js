@@ -8,6 +8,7 @@ class User extends Model {
     }
 };
 
+// user model created here;
 User.init(
     {
         username: {

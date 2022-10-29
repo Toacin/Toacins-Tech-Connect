@@ -1,3 +1,4 @@
+// button handlers for "my post" page (create post, create comment, edit post)
 if (document.querySelector('.blogCard')) {
     let $postButton = document.querySelector("#postSubmit");
     

@@ -1,3 +1,4 @@
+// configuration of sequelize connection to JAWSdb database done here
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

@@ -1,3 +1,4 @@
+// script for handling signup
 if(document.querySelector('#signUpButton')) {
     const $signUpBTN = document.querySelector('#signUpButton');
     

@@ -1,3 +1,4 @@
+// script for handling login
 if(document.querySelector('#loginSubmit')) {
     const $loginBTN = document.querySelector('#loginSubmit');
     
